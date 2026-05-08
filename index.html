@@ -148,22 +148,27 @@ nav {
 .stripe { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(184,160,224,0.18), transparent); }
 
 /* SKILLS */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(440px,1fr)); gap: 0.9rem; }
-.skill-card {
-  background: var(--surface); border: 1px solid var(--border);
-  padding: 1.2rem 1.5rem; border-radius: 12px;
-  transition: border-color 0.25s, transform 0.25s;
+.skills-pills {
+  display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
 }
-.skill-card:hover { border-color: rgba(184,160,224,0.32); transform: translateX(4px); }
-.skill-hd { display: flex; justify-content: space-between; margin-bottom: 0.75rem; }
-.skill-name { font-family: 'Syne', sans-serif; font-size: 0.73rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); }
-.skill-pct { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1px; color: var(--lav); }
-.bar-bg { height: 4px; background: rgba(255,255,255,0.05); border-radius: 999px; overflow: hidden; }
-.bar-fill {
-  height: 100%; width: 0%; border-radius: 999px;
-  background: linear-gradient(90deg, var(--rose), var(--lav), var(--blue));
-  transition: width 1.9s cubic-bezier(0.4,0,0.2,1);
-  box-shadow: 0 0 8px rgba(184,160,224,0.35);
+.pill {
+  font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 1px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); padding: 0.6rem 1.3rem 0.6rem 1rem; border-radius: 999px;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  cursor: default; display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.pill::before {
+  content: '✓';
+  font-size: 0.7rem; font-weight: 900;
+  background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  flex-shrink: 0;
+}
+.pill:hover {
+  border-color: rgba(184,160,224,0.4);
+  background: rgba(184,160,224,0.08);
+  transform: translateY(-2px);
 }
 
 /* ABOUT */
@@ -331,13 +336,17 @@ footer {
 <!-- SKILLS -->
 <section class="sec" id="skills">
   <div class="sec-hd reveal"><span class="sec-tag">Stats</span><h2 class="sec-title">Skills</h2></div>
-  <div class="skills-grid">
-    <div class="skill-card reveal"><div class="skill-hd"><span class="skill-name">LuaU / Lua</span><span class="skill-pct">95%</span></div><div class="bar-bg"><div class="bar-fill" data-w="95"></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.06s"><div class="skill-hd"><span class="skill-name">Game Systems Design</span><span class="skill-pct">90%</span></div><div class="bar-bg"><div class="bar-fill" data-w="90"></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.12s"><div class="skill-hd"><span class="skill-name">DataStores and Persistence</span><span class="skill-pct">85%</span></div><div class="bar-bg"><div class="bar-fill" data-w="85"></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.18s"><div class="skill-hd"><span class="skill-name">UI / GUI Scripting</span><span class="skill-pct">88%</span></div><div class="bar-bg"><div class="bar-fill" data-w="88"></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.24s"><div class="skill-hd"><span class="skill-name">Remotes and Networking</span><span class="skill-pct">87%</span></div><div class="bar-bg"><div class="bar-fill" data-w="87"></div></div></div>
-    <div class="skill-card reveal" style="transition-delay:.30s"><div class="skill-hd"><span class="skill-name">OOP and Module Scripts</span><span class="skill-pct">83%</span></div><div class="bar-bg"><div class="bar-fill" data-w="83"></div></div></div>
+  <div class="skills-pills reveal">
+    <span class="pill">LuaU / Lua</span>
+    <span class="pill">Game Systems Design</span>
+    <span class="pill">DataStores &amp; Persistence</span>
+    <span class="pill">UI / GUI Scripting</span>
+    <span class="pill">Remotes &amp; Networking</span>
+    <span class="pill">OOP &amp; Module Scripts</span>
+    <span class="pill">Rojo</span>
+    <span class="pill">Git &amp; Version Control</span>
+    <span class="pill">Mobile Optimisation</span>
+    <span class="pill">Data-Driven Programming</span>
   </div>
 </section>
 
